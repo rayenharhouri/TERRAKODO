@@ -5,7 +5,7 @@ import * as userController from '../controllers/user.js'  ;
 
 const router = express.Router();
 
-router.post('/signup', protect , userController.SignUp);
+router.post('/signup',  userController.SignUp);
 router.post('/signin', userController.SignIn);
 
 

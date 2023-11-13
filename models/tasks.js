@@ -16,6 +16,15 @@ const taskSchema = new Schema(
             enum: ['1','2','3','4','5'],
             required: true
         },
+        status: {
+            type: String,
+            enum: ['Open Task','In Progress','Done'],
+            default: 'Open Task'
+        },
+        owner: {
+            type: Schema.Types.ObjectId,
+            required: true
+        },
         dueDate:{
             type: Date,
             required: false

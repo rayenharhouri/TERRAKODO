@@ -2,7 +2,7 @@ POST http://localhost:9090/user/signup
 Content-Type: application/json
 
 {
-  "email": "rayenharhouri99@gmail.com",
+  "email": "OtherOne",
   "password": "password123",
   "fullName": "John Doe"
 }
@@ -20,12 +20,12 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "title": "rayenharhouri99@gmail.com",
+  "title": "HOLA",
   "description": "password123",
   "priority": 1
 }
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTIyMzVlMzg3ZmU4ZTFkMGIxZjRhYSIsImlhdCI6MTY5OTg4MzM5NSwiZXhwIjoxNzAyNDc1Mzk1fQ.sevN-76RSljc28cCPpZVxDFi7tMkfw9hbrCECetp7iU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTIzMzk4MDI2ZWQzMWM3MWQyNjU1MCIsImlhdCI6MTY5OTg4NzIzMCwiZXhwIjoxNzAyNDc5MjMwfQ.k2L1NOeGAuBVyDvWqZ38vnTOD6XOKbLv0NP3N3jSGBw
 ###
 PUT http://localhost:9090/task/updateTask/65522cccb62d20377d3169c8
 Content-Type: application/json
@@ -38,5 +38,17 @@ Authorization: Bearer {{token}}
 }
 ###
 DELETE http://localhost:9090/task/deleteTask/65522cccb62d20377d3169c8
+Content-Type: application/json
+Authorization: Bearer {{token}}
+###
+PUT http://localhost:9090/task/updateStatus/655233ea3f66f69d78cafcc2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "status": "Done"
+}
+###
+GET http://localhost:9090/task/retriveAllTasks
 Content-Type: application/json
 Authorization: Bearer {{token}}
