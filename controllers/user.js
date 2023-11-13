@@ -31,7 +31,6 @@ try {
             message: "Login Successfull",
             success: true,
             token: token,
-            role: User.role,
           });
       } else {
         const token = genrateUserToken(User);
