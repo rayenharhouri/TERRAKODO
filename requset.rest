@@ -1,0 +1,42 @@
+POST http://localhost:9090/user/signup
+Content-Type: application/json
+
+{
+  "email": "rayenharhouri99@gmail.com",
+  "password": "password123",
+  "fullName": "John Doe"
+}
+###
+POST http://localhost:9090/user/signin
+Content-Type: application/json
+
+{
+  "email": "rayenharhouri99@gmail.com",
+  "password": "password123"
+}
+###
+POST http://localhost:9090/task/addTask
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "rayenharhouri99@gmail.com",
+  "description": "password123",
+  "priority": 1
+}
+###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTIyMzVlMzg3ZmU4ZTFkMGIxZjRhYSIsImlhdCI6MTY5OTg4MzM5NSwiZXhwIjoxNzAyNDc1Mzk1fQ.sevN-76RSljc28cCPpZVxDFi7tMkfw9hbrCECetp7iU
+###
+PUT http://localhost:9090/task/updateTask/65522cccb62d20377d3169c8
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "TESTEST",
+  "description": "aaaaaaaaaa",
+  "priority": 1
+}
+###
+DELETE http://localhost:9090/task/deleteTask/65522cccb62d20377d3169c8
+Content-Type: application/json
+Authorization: Bearer {{token}}
