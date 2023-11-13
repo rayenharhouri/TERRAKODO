@@ -52,3 +52,11 @@ Authorization: Bearer {{token}}
 GET http://localhost:9090/task/retriveAllTasks
 Content-Type: application/json
 Authorization: Bearer {{token}}
+###
+POST http://localhost:9090/task/getTaskById
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id" : "qsdfqsdqs"
+}

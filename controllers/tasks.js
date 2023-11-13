@@ -5,14 +5,14 @@ import UserModel from "../models/user.js";
 /*************************** ADD TASK ***************************/
 export async function addTask(req, res) {
   try {
-    const { title, description, priority } = req.body;
+    const { title, description, priority,dueDate } = req.body;
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, "VerySecret");
     const userId = decodedToken.id;
 
     const user = await UserModel.findById(userId);
 
-    if (!(title && description && priority)) {
+    if (!(title && description && priority && dueDate)) {
       res.status(400).json({ message: "All Fields are required" });
     }
     const task = await Task.create({
@@ -20,6 +20,7 @@ export async function addTask(req, res) {
       description,
       priority,
       owner: userId,
+      dueDate,
     });
     user.tasks.push(task);
     user.save();
@@ -101,4 +102,10 @@ export async function getTasksByUser(req, res) {
     console.error(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
+}
+/*************************** Get TASK BY ID ***************************/
+export async function getTaskById(req,res) {
+  let id = await req.body.id
+  if(!id) res.send({message: "id is required"})
+  else res.send({ task: await Task.findOne({id}) })
 }
